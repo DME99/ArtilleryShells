@@ -21,7 +21,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableWidgetHistory->setColumnWidth(2, 60);
     ui->tableWidgetHistory->setColumnWidth(3, 200);
 
+    int totalWidth = 0;
+    for (int i = 0; i < ui->tableWidgetHistory->columnCount(); ++i) {
+        totalWidth += ui->tableWidgetHistory->columnWidth(i);
+    }
+    totalWidth += ui->tableWidgetHistory->columnCount() * 4 + 2;
 
+    ui->tableWidgetHistory->setFixedWidth(totalWidth);
 
      QVector<shell*> m_shells = shell_repo.getAll();
      for(shell* sh : m_shells) {

@@ -1,1 +1,2 @@
 build/
+!build/Desktop-Debug/shellDB.db
