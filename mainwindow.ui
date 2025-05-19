@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1011</width>
+    <height>642</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">/* Общий фон */
+QWidget {
+    background-color: #1f2a20;
+    color: #d0d0d0;
+    font-family: &quot;Consolas&quot;, &quot;Monospace&quot;;
+    font-size: 13px;
+}
+
+/* Кнопки */
+QPushButton {
+    background-color: #3e5c3a;
+    color: white;
+    border: 1px solid #1e2b1f;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+QPushButton:hover {
+    background-color: #4f744a;
+}
+QPushButton:pressed {
+    background-color: #2c3e2b;
+}
+
+/* Красная кнопка Remove */
+#pushButtonRemove {
+    background-color: #7b1e1e;
+}
+#pushButtonRemove:hover {
+    background-color: #a53030;
+}
+#pushButtonRemove:pressed {
+    background-color: #5a0f0f;
+}
+
+/* Таблица */
+QTableWidget {
+    background-color: #263328;
+    alternate-background-color: #2f3f2e;
+    border: 1px solid #3b4d3f;
+    gridline-color: #4c5c4e;
+    selection-background-color: #446644;
+    selection-color: #ffffff;
+}
+
+/* Ячейки (чтобы не было белого текста на белом фоне) */
+QTableWidget QTableCornerButton::section,
+QTableView QTableCornerButton::section {
+    background-color: #3c4b3a;
+}
+
+/* Заголовки таблиц */
+QHeaderView::section {
+    background-color: #3c4b3a;
+    color: #d0d0d0;
+    font-weight: bold;
+    border: 1px solid #2c3b2a;
+    padding: 4px;
+}
+
+/* LineEdit */
+QLineEdit {
+    background-color: #1d251c;
+    color: #d0d0d0;
+    border: 1px solid #3a4a3a;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* ComboBox */
+QComboBox {
+    background-color: #1d251c;
+    color: #d0d0d0;
+    border: 1px solid #3a4a3a;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* Выпадающее меню ComboBox */
+QComboBox QAbstractItemView {
+    background-color: #2c3b2a;
+    selection-background-color: #446644;
+    color: #d0d0d0;
+}
+</string>
+   </property>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>531</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>Type</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>In stock</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Used</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Total</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>40</y>
+      <width>311</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Add/Remove</string>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Select type</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxType">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>30</y>
+       <width>141</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>60mm</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>82mm</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>100mm</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>122mm</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>152mm</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Enter quantity</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEditAddCount">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>80</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonAdd">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>120</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+}
+QPushButton:hover {
+    background-color: #45a049;
+}</string>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButtonRemove">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>120</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: #f44336;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+}
+QPushButton:hover {
+    background-color: #d32f2f;
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Remove</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTableWidget" name="tableWidgetHistory">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>380</y>
+      <width>531</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>531</width>
+      <height>192</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget {
+    font-size: 13px;
+    color: #ffffff;
+}
+QTableWidget::item {
+    color: #ffffff;
+}
+QHeaderView::section {
+    font-weight: bold;
+}
+</string>
+    </property>
+    <column>
+     <property name="text">
+      <string>Type shell</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Type operation</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Count</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Date time</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>340</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>History</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBoxFilterType">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>340</y>
+      <width>181</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>all</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>60mm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>82mm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>100mm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>122mm</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>152mm</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButtonFilter">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>340</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Filtr</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1011</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
